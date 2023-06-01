@@ -1,0 +1,136 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn
+{
+    background-color: #ff6a00;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+strong
+{
+    font-size: larger;
+}
+nav 
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 48px;
+    align-items: center;
+    background-color: hsl(21, 100%, 50%);
+    border-bottom: 1px solid #000;
+    font-size: 24px;
+
+}
+ul 
+{
+    display: flex;
+    list-style: none;
+}
+nav a
+{
+    text-decoration: none;
+    color: #000;
+    display: block;
+    background-color: hsl(21, 100%, 50%);
+    padding: 16px 32px;
+    margin: 0 8px;
+    border-radius: 8px;
+    color:white;
+}
+nav a:hover
+{
+    background-color: hsl(20, 100%, 40%);
+}
+
+main
+{
+    display:  grid;
+    grid-template-columns: 1fr;
+    /* grid-template-columns: 200px 1fr; */
+    height: 100vh;
+    padding: 0 16px;
+}
+aside
+{
+    background-color: hsl(21, 74%, 88%);;
+    height: 100%;
+}
+
+
+.products
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 16px;
+}
+
+.product
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    background-color: hsl(17, 28%, 95%);
+    border-bottom: 1px solid gray;
+}
+.product img
+{
+    width: 100px;
+    height: 100px;
+    margin: 16px;
+}
+.product-img
+{
+    width: 100px;
+    height: 100px;
+}
+.product .info
+{
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+.order
+{
+    background-color: green;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-right: 64px;
+    cursor: pointer;
+    border: none;
+}
+.order:hover
+{
+    background-color: hsl(120, 100%, 13%);
+}
+
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px;
+}
+th, td
+{
+    text-align: left;
+    padding: 8px;
+}

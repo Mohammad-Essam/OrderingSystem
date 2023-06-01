@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script defer>
+        async function register()
+        {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let data = {
+                email: email,
+                password: password,
+                name: name
+            }
+
+            // TODO::read from config file
+
+            let response = await fetch(`api/users/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data),
+            });
+            
+            if(response.status == 200)
+            {
+                let result = await response.json();
+                localStorage.setItem("api_token", result.api_token);
+                window.location.href = "index.html";
+            }
+            else
+            {
+                toastr.error(await response.text());
+            }
+        }
+    </script>    
+</head>
+<body>
+    <main>
+        <div class="login">
+            <i class="fa-regular fa-user" id="login-avatar"></i>
+            <form action="" onsubmit="register()" method="post">
+                <label for="name">Name</label>
+                <input type="text" placeholder="Enter name" name="name" id="name">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter Email" name="email" id="email">                
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter Password" name="password" id="password">
+                <label for="password">Retype Password</label>
+                <input type="password" placeholder="Confirm Password" name="password" id="password">
+                <input class="primary-button" type="submit" value="Register">
+                <p>Already have an account <a href="login.html">just sign in</a></p>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

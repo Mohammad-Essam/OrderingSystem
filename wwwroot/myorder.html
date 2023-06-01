@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script  src="js/ensureUserLoggedIn.js" ></script>
+    <script src="js/logout.js"></script>
+    <script src="js/deleteOrder.js"></script>
+
+    <title>My Orders</title>
+    <script>
+
+                fetch(`api/users/whoami`,{headers:{"Authorization":`${localStorage.getItem("api_token")}`}})
+                    .then(response => response.json()).then(data => {
+                        document.getElementById("user").innerHTML = data.name;
+            }).catch(err => {
+        })
+
+
+        fetch('api/orders/myorder',
+        {
+            headers:{"Authorization":`${localStorage.getItem("api_token")}`}
+        })
+        .then(response => response.json())
+        .then(orders => orders.forEach(order => {
+            const product = order.product;
+            const orderDiv = document.createElement('div');
+            orderDiv.classList.add('product');
+            orderDiv.dataset.id = order.id;
+            orderDiv.id = order.id;
+            const productElement = `
+            <span style="margin-left:32px">${order.quantity} × </span>
+            <img src="${product.image}" alt="">
+            <div class="info">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <span>total price: ${order.totalprice} EGP</span>
+            </div>
+            <button style="background-color:red" class="order" onclick="deleteOrder(${order.id})">Delete Order</button>
+            `;
+            orderDiv.innerHTML = productElement;
+            document.getElementById('products').appendChild(orderDiv);  
+        }) );
+
+
+
+
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <strong><span>Welcome,</span><span id="user"></span></strong>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="allorders.html">All Created orders</a></li>
+                <li><a href="myorder.html">My Orders</a></li>
+                <li><a href="login.html" onclick="logout()">Logout</a></li>
+            </ul>
+            </nav>
+        <div class="hero">
+
+        </div>
+    </header>
+    <main>
+        <!-- <aside id="categories">
+
+        </aside> -->
+
+        <section id="products">
+        
+
+
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

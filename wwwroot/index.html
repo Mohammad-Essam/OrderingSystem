@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/loading.css">
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="js/logout.js"></script>
+    <title>Document</title>
+    <script  src="js/ensureUserLoggedIn.js" ></script>
+    
+    <script defer>
+        // ensureUserLoggedIn();
+        let productsList = [];
+        fetch('api/products')
+        .then(response => response.json())
+        .then(products => products.forEach(product => {
+            productsList.push(product);
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+            productDiv.dataset.id = product.id;
+            const productElement = `
+            <img src="${product.image}" alt="">
+                <div class="info">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p>${product.price}$</p>
+                </div>
+                <button class="order" onclick="showModal(${product.id})" >Order Now</button>
+
+            `;
+            productDiv.innerHTML = productElement;
+            document.getElementById('products').appendChild(productDiv);
+            document.getElementById('loading').style.display = "none";
+        }) );
+
+
+        fetch(`api/users/whoami`,{headers:{"Authorization":`${localStorage.getItem("api_token")}`}})
+            .then(response => response.json()).then(data => {
+                document.getElementById("user").innerHTML = data.name;
+    }).catch(err => {
+        
+    })
+
+        function order(id,q=1)
+        {
+            fetch("api/Orders",{
+                method:"POST",
+                headers:{"Authorization":`${localStorage.getItem("api_token")}`,"Content-Type":"application/json"},
+                body:JSON.stringify({productId:id,quantity:q})
+            }).then(response => response.json()).then(data => {
+                toastr.success("Order Created Successfully");
+            }).catch(err => {
+                toastr.error("Error Creating Order");
+            })
+        }
+
+        
+
+        function showModal(id)
+        {
+            let product = productsList.find(product => product.id == id);
+            document.querySelector(".modal").style.display = "flex";
+            document.getElementById("product-name").innerHTML = product.name;
+            document.getElementById("product-price").innerHTML = product.price;
+            document.getElementById("orderBtn").onclick = () => {
+                order(id,document.getElementById("quantityInput").value)
+                document.getElementById('modal').style.display = 'none';
+            };
+            document.getElementById('order-date').innerHTML = new Date().toLocaleDateString();
+        }
+    </script>
+</head>
+<body style="position: relative;">
+
+    <div id="loading">
+        <div class="lds-dual-ring"></div>
+    </div>
+
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <p class="close" onclick="document.getElementById('modal').style.display = 'none'" >X</p>
+            <h2>Order Details</h2>
+            <div class="order-details">
+                <div class="order-info">
+                    <h3>Order Info</h3>
+                    <p>Order ID : <span id="order-id"></span></p>
+                    <p>Order Date : <span id="order-date"></span></p>
+                    <p>Order Status : <span id="order-status"></span></p>
+                </div>
+                <div class="product-info">
+                    <h3>Product Info</h3>
+                    <p>Product Name : <span id="product-name"></span></p>
+                    <p>Product Price : <span id="product-price"></span></p>
+                    <p>Product Quantity : <span id="product-quantity"><input type="number" id="quantityInput" value="1"></span></p>
+                </div>
+            </div>
+            <button class="order" id="orderBtn">Order Now</button>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <strong><span>Welcome,</span><span id="user"></span></strong>
+            <ul>
+                <li><a href="allorders.html">All Created orders</a></li>
+                <li><a href="myorder.html">My Orders</a></li>
+                <li><a href="login.html" onclick="logout()">Logout</a></li>
+            </ul>
+            </nav>
+        <div class="hero">
+
+        </div>
+    </header>
+    <main>
+        <!-- <aside id="categories">
+
+        </aside> -->
+
+        <section id="products">
+        
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

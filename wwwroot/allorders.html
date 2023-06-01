@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script  src="js/ensureUserLoggedIn.js" ></script>
+    <script src="js/logout.js"></script>
+    <script src="js/deleteOrder.js"></script>
+    <title>My Orders</title>
+    <script>
+
+            fetch(`api/users/whoami`,{headers:{"Authorization":`${localStorage.getItem("api_token")}`}})
+                    .then(response => response.json()).then(data => {
+                        document.getElementById("user").innerHTML = data.name;
+            }).catch(err => {
+        })
+
+
+        //fetch all orders
+        fetch('api/orders',
+        {
+            headers:{"Authorization":`${localStorage.getItem("api_token")}`}
+        })
+        .then(response => response.json())
+        .then(orders => orders.forEach(order => {
+            const product = order.product;
+            const orderRow = document.createElement('tr');
+            orderRow.dataset.id = order.id;
+            orderRow.id = order.id;
+            const orderElement = `
+            <td>${order.user.name}</td>
+            <td><img class="product-img" src="${product.image}" alt=""></td>
+            <td>    
+                <div class="info">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                </div>
+            </td>
+            <td>${order.quantity}</td>
+            <td>${order.totalprice}$</td>
+            <td><button style="background-color:red" class="order" onclick="deleteOrder(${order.id})">Delete Order</button></td>
+            `;
+            orderRow.innerHTML = orderElement;
+            document.getElementById('ordersPlaceholder').appendChild(orderRow);  
+        }) );
+
+
+
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <strong><span>Welcome,</span><span id="user"></span></strong>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="allorders.html">All Created orders</a></li>
+                <li><a href="myorder.html">My Orders</a></li>
+                <li><a href="login.html" onclick="logout()">Logout</a></li>
+            </ul>
+            </nav>
+        <div class="hero">
+
+        </div>
+    </header>
+    <main>
+        <!-- <aside id="categories">
+
+        </aside> -->
+
+        <section id="orders">
+        <table id="ordersTable">
+            <thead>
+                <tr>
+                    <th>Order owner</th>
+                    <th>Product</th>
+                    <th>Product info</th>
+                    <th>Quantity</th>
+                    <th>Total price</th>
+                    <th></th>
+                </tr>
+                <tbody id="ordersPlaceholder">
+
+                </tbody>
+            </thead>
+        </table>
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
