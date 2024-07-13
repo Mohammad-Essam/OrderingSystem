@@ -1,13 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Task.Models;
 
 namespace Task
 {
-    public class ApplicationDbContext: DbContext
+    public class ApplicationDbContext: IdentityDbContext<User, IdentityRole, string>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<User>().ToTable("users");
         }
 
         public DbSet<User> Users { get; set; }

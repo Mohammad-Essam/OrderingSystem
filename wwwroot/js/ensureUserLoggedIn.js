@@ -4,14 +4,14 @@ async function ensureUserLoggedIn(actionIfLoggedIn = null)
 {
     let response = await fetch('/api/users/whoami',
         {
-            headers:{'Authorization': localStorage.getItem('api_token')}
+            headers:{'Authorization': "Bearer "+localStorage.getItem('api_token')}
         }
     );
     console.log(response);
     if(response.status == 200)
     {
         currentUser = await response.json();
-        document.getElementById("user").innerHTML = currentUser.name;
+        document.getElementById("user").innerHTML = currentUser.user.userName;
         if(actionIfLoggedIn != null)
             actionIfLoggedIn();
     }

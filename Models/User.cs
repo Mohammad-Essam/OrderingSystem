@@ -1,15 +1,13 @@
-﻿using System.Text.Json.Serialization;
+﻿using Microsoft.AspNetCore.Identity;
+using System.Text.Json.Serialization;
 
 namespace Task.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
+        public string? Name { get; set; }
 
         [JsonIgnore]
-        public string Password { get; set; }
         public string? Api_token { get; set; }
         public List<Order>? Orders { get; set; }
     }

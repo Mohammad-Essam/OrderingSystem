@@ -24,7 +24,7 @@
             let data = {
                 email: email,
                 password: password,
-                name: name
+                username: name
             }
 
             // TODO::read from config file
@@ -40,7 +40,7 @@
             if(response.status == 200)
             {
                 let result = await response.json();
-                localStorage.setItem("api_token", result.api_token);
+                localStorage.setItem("api_token", result.token);
                 window.location.href = "index.html";
             }
             else

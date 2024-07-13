@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Task.Dto;
 using Task.Models;
-
+using Task.Services;
 
 namespace Task.Controllers
 {
@@ -12,9 +12,11 @@ namespace Task.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        public OrdersController(ApplicationDbContext context)
+        private readonly ICurrentUser currentUser;
+        public OrdersController(ApplicationDbContext context, ICurrentUser _currentUser)
         {
             _context = context;
+            currentUser = _currentUser;
         }
 
 
@@ -27,9 +29,9 @@ namespace Task.Controllers
                 return BadRequest("you have to be authenticated");
             }
 
-            var user = await _context.Users.Include(u => u.Orders).SingleOrDefaultAsync(u =>
-                u.Api_token == HttpContext.Request.Headers.Authorization[0]);
-
+            //var user = await _context.Users.Include(u => u.Orders).SingleOrDefaultAsync(u =>
+            //    u.Api_token == HttpContext.Request.Headers.Authorization[0]);
+            var user = currentUser.User;
             if (user == null)
                 return BadRequest("you have to be authenticated");
             var orders = await _context.Orders
@@ -86,15 +88,19 @@ namespace Task.Controllers
         [HttpPost]
         public async Task<IActionResult> Store([FromBody] OrderDto order)
         {
-            if (HttpContext.Request.Headers.Authorization.Count == 0)
-                return NotFound("Guest");
+            //if (HttpContext.Request.Headers.Authorization.Count == 0)
+            //    return NotFound("Guest");
 
-            var user = await _context.Users.SingleOrDefaultAsync(u =>
-                u.Api_token == HttpContext.Request.Headers.Authorization[0]);
-            if (user == null)
+
+
+            //var user = await _context.Users.SingleOrDefaultAsync(u =>
+            //    u.Api_token == HttpContext.Request.Headers.Authorization[0]);
+            //if (user == null)
+            //    return BadRequest("you have to be authenticated");
+            if(!currentUser.IsAuthenticated)
                 return BadRequest("you have to be authenticated");
 
-
+            var user = currentUser.User;
             var product = await _context.Products.SingleOrDefaultAsync(p =>
                 p.Id == order.ProductId
             );
@@ -106,13 +112,13 @@ namespace Task.Controllers
                 UserId = user.Id,
                 Quantity = order.Quantity
             };
-            await _context.Orders.AddAsync(o);
-            _context.SaveChanges();
-            return Ok(o);
+            _context.Orders.Add(o);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(Store),o);
         }
 
         [HttpGet("customer/{id}")]
-        public async Task<IActionResult> GetOrdersByCustomerId(int id)
+        public async Task<IActionResult> GetOrdersByCustomerId(string id)
         {
             List<Order> orders = await _context.Orders.Include(o => o.Product).Where(o => o.UserId == id).ToListAsync<Order>();
             return Ok(orders);
@@ -120,7 +126,7 @@ namespace Task.Controllers
 
         //Delete all orders of the user of id {Id}
         [HttpDelete("customer/{id}")]
-        public async Task<IActionResult> DeleteAllOrdersByCustomerId(int id)
+        public async Task<IActionResult> DeleteAllOrdersByCustomerId(string id)
         {
             var user = await _context.Users.Include(u => u.Orders).SingleOrDefaultAsync(u =>
                 u.Id == id);
@@ -132,7 +138,7 @@ namespace Task.Controllers
             {
                 _context.Orders.Remove(o);
             }
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok(orders);
         }
 
@@ -140,16 +146,21 @@ namespace Task.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Destroy(int id)
         {
-            if (HttpContext.Request.Headers.Authorization.Count == 0)
-            {
-                return BadRequest("you have to be authenticated");
-            }
+            //if (HttpContext.Request.Headers.Authorization.Count == 0)
+            //{
+            //    return BadRequest("you have to be authenticated");
+            //}
 
-            var user = await _context.Users.SingleOrDefaultAsync(u =>
-                u.Api_token == HttpContext.Request.Headers.Authorization[0]);
+            //var user = await _context.Users.SingleOrDefaultAsync(u =>
+            //    u.Api_token == HttpContext.Request.Headers.Authorization[0]);
 
-            if (user == null)
+            //if (user == null)
+            //    return BadRequest("you have to be authenticated");
+
+            if (!currentUser.IsAuthenticated)
                 return BadRequest("you have to be authenticated");
+
+            var user = currentUser.User;
 
             var order = await _context.Orders.SingleOrDefaultAsync(o => o.Id == id);
             if (order == null) return NotFound("invalid id");
@@ -160,7 +171,7 @@ namespace Task.Controllers
             }
 
             _context.Orders.Remove(order);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok(order);
         }
 

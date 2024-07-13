@@ -1,4 +1,6 @@
-﻿namespace Task.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Task.Models
 {
     public class Order
     {
@@ -7,7 +9,9 @@
         //public User User { get; set; }
         public byte Quantity { get; set; } = 1;
         public int ProductId { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
+        [JsonIgnore]
+        public User User { get; set; }
 
     }
 }

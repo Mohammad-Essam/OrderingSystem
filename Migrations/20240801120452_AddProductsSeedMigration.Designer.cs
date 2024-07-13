@@ -11,7 +11,7 @@ using Task;
 namespace Task.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230601120452_AddProductsSeedMigration")]
+    [Migration("20240801120452__AddProductsSeedMigration")]
     partial class AddProductsSeedMigration
     {
         /// <inheritdoc />

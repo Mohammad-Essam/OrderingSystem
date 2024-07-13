@@ -5,7 +5,7 @@ async function deleteOrder(id)
     {
         let response = await fetch(`api/Orders/${id}`,{
             method:"DELETE",
-        headers:{"Authorization":`${localStorage.getItem("api_token")}`,"Content-Type":"application/json"},
+        headers:{"authorization":`Bearer ${localStorage.getItem("api_token")}`,"Content-Type":"application/json"},
         });
         if(response.status == 200)
         {

@@ -16,8 +16,7 @@
     <script src="js/deleteOrder.js"></script>
     <title>My Orders</title>
     <script>
-
-            fetch(`api/users/whoami`,{headers:{"Authorization":`${localStorage.getItem("api_token")}`}})
+            fetch(`api/users/whoami`,{headers:{"authorization":`Bearer ${localStorage.getItem("api_token")}`}})
                     .then(response => response.json()).then(data => {
                         document.getElementById("user").innerHTML = data.name;
             }).catch(err => {
@@ -27,7 +26,7 @@
         //fetch all orders
         fetch('api/orders',
         {
-            headers:{"Authorization":`${localStorage.getItem("api_token")}`}
+            headers:{"authorization":`Bearer ${localStorage.getItem("api_token")}`}
         })
         .then(response => response.json())
         .then(orders => orders.forEach(order => {
@@ -36,7 +35,7 @@
             orderRow.dataset.id = order.id;
             orderRow.id = order.id;
             const orderElement = `
-            <td>${order.user.name}</td>
+            <td>${order.user.userName}</td>
             <td><img class="product-img" src="${product.image}" alt=""></td>
             <td>    
                 <div class="info">

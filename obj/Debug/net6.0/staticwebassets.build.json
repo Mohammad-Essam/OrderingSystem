@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+o7zBGiyRWSIApTojbfzhwgm4RuMUDAToua8LQNtPjg=",
+  "Hash": "hMQl/XIZpm3xGgvM1Wj2+lwg3yMiH0+nCcTjx9FclqE=",
   "Source": "Task",
   "BasePath": "_content/Task",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Task\\wwwroot",
       "Source": "Task",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\allorders.html",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\allorders.html",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "allorders.html",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\allorders.html"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\css\\loading.css",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\css\\loading.css",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "css/loading.css",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\css\\loading.css"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\css\\login.css",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\css\\login.css",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "css/login.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\css\\modal.css",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\css\\modal.css",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "css/modal.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\modal.css"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\images\\login-background.jpg",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\images\\login-background.jpg",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "images/login-background.jpg",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\images\\login-background.jpg"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\images\\products\\kebda.jpg",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\images\\products\\kebda.jpg",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "images/products/kebda.jpg",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\kebda.jpg"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\images\\products\\kofta.jpg",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\images\\products\\kofta.jpg",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "images/products/kofta.jpg",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\kofta.jpg"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\images\\products\\koshary.jpg",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\images\\products\\koshary.jpg",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "images/products/koshary.jpg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\koshary.jpg"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\images\\products\\Pizza.jpg",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\images\\products\\Pizza.jpg",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "images/products/Pizza.jpg",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\Pizza.jpg"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\images\\products\\Spaghetti.jpg",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\images\\products\\Spaghetti.jpg",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "images/products/Spaghetti.jpg",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\Spaghetti.jpg"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\images\\products\\كفتة.jpg",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\images\\products\\كفتة.jpg",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "images/products/كفتة.jpg",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\كفتة.jpg"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\index.html",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\index.html",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\js\\deleteOrder.js",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\js\\deleteOrder.js",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "js/deleteOrder.js",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\js\\deleteOrder.js"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\js\\ensureUserLoggedIn.js",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\js\\ensureUserLoggedIn.js",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "js/ensureUserLoggedIn.js",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\js\\ensureUserLoggedIn.js"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\js\\logout.js",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\js\\logout.js",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "js/logout.js",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\js\\logout.js"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\login.html",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\login.html",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "login.html",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\login.html"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\main.css",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\main.css",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "main.css",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\main.css"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\myorder.html",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\myorder.html",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "myorder.html",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\myorder.html"
     },
     {
-      "Identity": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\register.html",
+      "Identity": "D:\\Learning\\OrderingSystem\\wwwroot\\register.html",
       "SourceId": "Task",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Go\\source\\repos\\Task\\wwwroot\\",
+      "ContentRoot": "D:\\Learning\\OrderingSystem\\wwwroot\\",
       "BasePath": "_content/Task",
       "RelativePath": "register.html",
       "AssetKind": "All",

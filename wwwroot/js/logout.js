@@ -1,14 +1,27 @@
 function logout()
         {
-            event.preventDefault();
-            fetch("api/users/logout",{
-                method:"DELETE",
-                headers:{"Authorization":`${localStorage.getItem("api_token")}`}},
-            ).then(data => {
+    event.preventDefault();
+
+    async function logout() {
+        try {
+            const response = await fetch("api/users/logout", {
+                method: "DELETE",
+                headers: { "authorization": `Bearer ${localStorage.getItem("api_token")}` },
+            });
+
+            if (response.ok) {
                 toastr.success("Logged Out Successfully");
-            }).catch(err => {
+            } else {
                 toastr.error("Error Logging Out");
-            })
+            }
+        } catch (err) {
+            toastr.error("Error Logging Out");
+        } finally {
             localStorage.removeItem("api_token");
             window.location.href = "login.html";
+        }
+    }
+
+    logout();
+
         }

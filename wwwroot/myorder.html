@@ -18,16 +18,16 @@
     <title>My Orders</title>
     <script>
 
-                fetch(`api/users/whoami`,{headers:{"Authorization":`${localStorage.getItem("api_token")}`}})
+                fetch(`api/users/whoami`,{headers:{"authorization":`Bearer ${localStorage.getItem("api_token")}`}})
                     .then(response => response.json()).then(data => {
-                        document.getElementById("user").innerHTML = data.name;
+                        document.getElementById("user").innerHTML = data.user.userName;
             }).catch(err => {
         })
 
 
         fetch('api/orders/myorder',
         {
-            headers:{"Authorization":`${localStorage.getItem("api_token")}`}
+            headers:{"authorization":`Bearer ${localStorage.getItem("api_token")}`}
         })
         .then(response => response.json())
         .then(orders => orders.forEach(order => {
